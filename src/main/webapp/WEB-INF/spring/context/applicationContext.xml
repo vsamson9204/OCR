@@ -42,8 +42,8 @@
 			value="com.mysql.jdbc.Driver" />
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/earth" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="username" value="hbstudent" />
+		<property name="password" value="hbstudent" />
 	</bean>
 
 

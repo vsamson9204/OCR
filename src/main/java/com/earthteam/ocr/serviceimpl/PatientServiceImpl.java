@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.earthteam.ocr.domain.Appointment;
 import com.earthteam.ocr.domain.Patient;
+import com.earthteam.ocr.repository.AppointmentRepository;
 import com.earthteam.ocr.repository.PatientRepository;
 import com.earthteam.ocr.service.PatientService;
 
@@ -26,6 +28,10 @@ public class PatientServiceImpl implements PatientService {
 
 	@Autowired
 	PatientRepository patientRepository;
+	
+	@Autowired
+	AppointmentRepository appoitnmentsRepository;
+	
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
@@ -62,6 +68,11 @@ public class PatientServiceImpl implements PatientService {
 	public Patient getPatienByEmail(String email) {
 		
 		return patientRepository.findByEmailId(email);
+	}
+	
+	@Override
+	public List<Appointment> findAllAppointments(Patient patient) {
+		return appoitnmentsRepository.findByPatientId(patient.getId());
 	}
 
 }

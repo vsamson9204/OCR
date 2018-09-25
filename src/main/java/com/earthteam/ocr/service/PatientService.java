@@ -3,6 +3,7 @@ package com.earthteam.ocr.service;
 
 import java.util.List;
 
+import com.earthteam.ocr.domain.Appointment;
 import com.earthteam.ocr.domain.Doctor;
 import com.earthteam.ocr.domain.Patient;
 
@@ -12,4 +13,5 @@ public interface PatientService {
 	Patient findPatientById(Long patientId);
 	Patient getPatientByUserName(String username);
 	public Patient getPatienByEmail(String email);
+	List<Appointment> findAllAppointments(Patient patient);
 }

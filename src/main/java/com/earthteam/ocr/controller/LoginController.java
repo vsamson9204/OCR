@@ -5,6 +5,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * 
+ * @author Vivian Samson - vsamson92044@gmail.com
+ *
+ *
+ */
+
 @Controller
 public class LoginController {
 

@@ -14,7 +14,7 @@ import com.earthteam.ocr.service.CategoryService;
 
 /**
  * 
- * @author Cong Khanh Tran - trancongkhanh@gmail.com
+ * @author Vivian Samson - vsamson92044@gmail.com
  *
  *
  */

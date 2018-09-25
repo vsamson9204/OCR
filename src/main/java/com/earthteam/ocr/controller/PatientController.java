@@ -10,6 +10,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.earthteam.ocr.domain.Appointment;
 import com.earthteam.ocr.domain.Authority;
+import com.earthteam.ocr.domain.Doctor;
 import com.earthteam.ocr.domain.Patient;
 import com.earthteam.ocr.service.PatientService;
-import com.earthteam.ocr.validator.PasswordEqualValidator;
 
 /**
  * @author Vivian Samson
@@ -38,8 +41,11 @@ public class PatientController {
 
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
-	
-	
+
+	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
+	public String home() {
+		return "patient/patient_home";
+	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerPatient(@ModelAttribute("patient") Patient patient, Model model) {
@@ -59,12 +65,10 @@ public class PatientController {
 
 		Authority authority = new Authority();
 
-		
-
 		patient.getCredentials().setEnabled(true);
 
 		authority.setUsername(patient.getCredentials().getUsername());
-		authority.setAuthority("ROLE_USER");
+		authority.setAuthority("ROLE_PATIENT");
 
 		List<Authority> list = new ArrayList<>();
 		list.add(authority);
@@ -76,6 +80,17 @@ public class PatientController {
 
 		redirectAttributes.addFlashAttribute("patient", patient);
 		return "redirect:details";
+	}
+
+	@RequestMapping(value = { "/viewAppointments" }, method = RequestMethod.GET)
+	public String viewAppointments(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Patient patient = patientService.getPatientByUserName(authentication.getName());
+		List<Appointment> appointmentList = patientService.findAllAppointments(patient);
+		model.addAttribute("appointments", appointmentList);
+		model.addAttribute("patient", patient);
+		return "patient/appointment_list";
+
 	}
 
 	@RequestMapping(value = "/details")

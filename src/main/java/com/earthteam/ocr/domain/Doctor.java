@@ -44,6 +44,11 @@ public class Doctor {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "ADDRESS_ID")
 	private Address address;
+	
+	@Valid
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "USERNAME")
+	private Credentials credentials;
 
 	@Valid
 	@OneToOne(cascade = CascadeType.ALL)
@@ -138,6 +143,15 @@ public class Doctor {
 		return firstName + " " + lastName;
 	}
 	
+	
+	public Credentials getCredentials() {
+		return credentials;
+	}
+
+	public void setCredentials(Credentials credentials) {
+		this.credentials = credentials;
+	}
+
 	@Override
 	public String toString() {
 		return "Doctor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", portfolio=" + portfolio

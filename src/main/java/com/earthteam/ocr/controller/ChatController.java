@@ -10,7 +10,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 /**
  * 
- * @author Cong Khanh Tran - trancongkhanh@gmail.com
+ * @author Vivian Samson - vsamson92044@gmail.com
  *
  *
  */

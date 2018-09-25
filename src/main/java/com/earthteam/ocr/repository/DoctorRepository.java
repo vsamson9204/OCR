@@ -13,14 +13,20 @@ import org.springframework.stereotype.Repository;
 import com.earthteam.ocr.domain.Doctor;
 
 /**
- * @author Cong Khanh Tran - trancongkhanh@gmail.com
- *
  * 
+ * @author Vivian Samson - vsamson92044@gmail.com
+ *
+ *
  */
 @Repository
 public interface DoctorRepository extends CrudRepository<Doctor, Long> {
 
 	@Query ("SELECT d FROM Doctor d WHERE doctorCategory.id = :categoryId")
 	List<Doctor> findByCategoryId(@Param("categoryId") int categoryId);
+	
+	@Query ("SELECT d FROM Doctor d WHERE credentials.username = :username")
+	Doctor findByUserName(@Param("username") String userName);
+	
+	
 	
 }

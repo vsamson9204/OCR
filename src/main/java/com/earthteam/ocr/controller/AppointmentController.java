@@ -70,7 +70,10 @@ public class AppointmentController {
 //	public List<Timespan> getTimespans() {
 //		return timespanService.findAll();
 //	}
-
+	@RequestMapping(value = "/make")
+	public String makeAppointment() {
+		return "appointment/make-appointment";
+	}
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addAppointment(@RequestParam(value = "categoryId", required = false) Integer categoryId,
 			@RequestParam(value = "doctorId", required = false) Long doctorId,

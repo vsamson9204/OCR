@@ -17,7 +17,7 @@
 			pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		
 		<security:intercept-url 
-			pattern="/appointment/**" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" /> 
+			pattern="/appointment/**" access="hasAnyRole('ROLE_ADMIN','ROLE_PATIENT')" /> 
 
 		<security:form-login login-page="/login"
 			login-processing-url="/postLogin" 

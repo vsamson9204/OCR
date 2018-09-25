@@ -111,41 +111,48 @@
 		                
             		</div>
             		<!-- right column -->
-            		<div class="col-sm-6">
-            		
-            			<div class="form-group">
-							<label class="control-label col-sm-4" for="ssn"><spring:message code="form.userName"/></label>
-							<div class="col-sm-8">
-								<form:input id="userName" path="credentials.username" class="form-control"/>
-								<form:errors path="credentials.username" cssClass="text-danger"/>
-							</div>
+				<div class="col-sm-6">
+
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="ssn"><spring:message
+								code="form.userName" /></label>
+						<div class="col-sm-8">
+							<form:input id="userName" path="credentials.username"
+								class="form-control" />
+							<form:errors path="credentials.username" cssClass="text-danger" />
 						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-4" for="ssn"><spring:message code="form.password"/></label>
-							<div class="col-sm-8">
-								<form:input id="password" type="password" path="credentials.password" class="form-control"/>
-								<form:errors path="credentials.password" cssClass="text-danger"/>
-							</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="ssn"><spring:message
+								code="form.password" /></label>
+						<div class="col-sm-8">
+							<form:input id="password" type="password"
+								path="credentials.password" class="form-control" />
+							<form:errors path="credentials.password" cssClass="text-danger" />
 						</div>
-						
-						<div class="form-group">
-							<label class="control-label col-sm-4" for="ssn"><spring:message code="form.verifyPassword"/></label>
-							<div class="col-sm-8">
-								<form:input id="verifyPassword" type="password" path="credentials.verifyPassword" class="form-control"/>
-								<form:errors path="credentials" cssClass="text-danger"/>
-							</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="ssn"><spring:message
+								code="form.verifyPassword" /></label>
+						<div class="col-sm-8">
+							<form:input id="verifyPassword" type="password"
+								path="credentials.verifyPassword" class="form-control" />
+							<form:errors path="credentials" cssClass="text-danger" />
 						</div>
-						
-						
-            			<!-- submit -->
-            			<div class="form-group">
-            				<div class="col-sm-4">&nbsp;</div>
-							<div class="col-sm-8"">
-								<input type="submit" id="btnAdd" class="btn btn-primary" value ="Register" class="form-control"/>
-							</div>
-						</div>		
-            		</div>
+					</div>
+
+
+					<!-- submit -->
+					<div class="form-group">
+						<div class="col-sm-4">&nbsp;</div>
+						<div class="col-sm-8"">
+							<input type="submit" id="btnAdd" class="btn btn-primary"
+								value="Register" class="form-control" />
+						</div>
+					</div>
 				</div>
+			</div>
 
 		</form:form>
 	</section>

@@ -6,14 +6,18 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.earthteam.ocr.domain.Appointment;
 import com.earthteam.ocr.domain.Doctor;
+import com.earthteam.ocr.repository.AppointmentRepository;
 import com.earthteam.ocr.repository.DoctorRepository;
+import com.earthteam.ocr.service.AppointmentService;
 import com.earthteam.ocr.service.DoctorService;
 /**
- * Service implementation for Doctor class
- * @author Cong Khanh Tran - trancongkhanh@gmail.com
+ * 
+ * @author Vivian Samson - vsamson92044@gmail.com
  *
  *
  */
@@ -24,8 +28,18 @@ public class DoctorServiceImpl implements DoctorService {
 	@Autowired
 	DoctorRepository doctorRepository;
 	
+	@Autowired
+	AppointmentRepository appoitnmentsRepository;
+	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
+	
 	@Override
 	public long save(Doctor doctor) {
+		
+		String encodedPassword = passwordEncoder.encode(doctor.getCredentials().getPassword());
+		doctor.getCredentials().setPassword(encodedPassword);
+		doctor.getCredentials().setVerifyPassword(encodedPassword);
 		return doctorRepository.save(doctor).getId();
 	}
 
@@ -44,6 +58,18 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public Doctor findById(long id) {
 		return doctorRepository.findOne(id);
+	}
+
+	@Override
+	public Doctor findByUserName(String username) {
+		// TODO Auto-generated method stub
+		return doctorRepository.findByUserName(username);
+	}
+
+	@Override
+	public List<Appointment> findAllAppointments(Doctor doctor) {
+		// TODO Auto-generated method stub
+		return appoitnmentsRepository.findByDoctorId(doctor.getId());
 	}
 
 }

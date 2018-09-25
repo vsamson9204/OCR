@@ -17,7 +17,7 @@ import com.earthteam.ocr.domain.dto.DomainErrors;
 
 /**
  * Handler error for application
- * @author Cong Khanh Tran - trancongkhanh@gmail.com
+ * @author Vivian Samson - vsamson92044@gmail.com
  *
  *
  */

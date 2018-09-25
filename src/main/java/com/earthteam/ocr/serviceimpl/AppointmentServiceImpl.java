@@ -16,7 +16,7 @@ import com.earthteam.ocr.service.AppointmentService;
 
 /**
  * 
- * @author Cong Khanh Tran - trancongkhanh@gmail.com
+ * @author Vivian Samson - vsamson92044@gmail.com
  *
  *
  */

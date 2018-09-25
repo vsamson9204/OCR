@@ -12,13 +12,16 @@ import com.earthteam.ocr.domain.Appointment;
 
 /**
  * 
- * @author Cong Khanh Tran - trancongkhanh@gmail.com
+ * @author Vivian Samson - vsamson92044@gmail.com
  *
  *
  */
 @Repository
 public interface AppointmentRepository extends CrudRepository<Appointment, Long> {
 
+	@Query("SELECT a FROM Appointment a WHERE a.patient.id = :patientId")
+	List<Appointment> findByPatientId(@Param("patientId") long patientId);
+	
 	@Query("SELECT a FROM Appointment a WHERE a.doctor.id = :doctorId")
 	List<Appointment> findByDoctorId(@Param("doctorId") long doctorId);
 	

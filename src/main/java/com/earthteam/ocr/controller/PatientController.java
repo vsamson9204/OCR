@@ -27,10 +27,7 @@ import com.earthteam.ocr.domain.Doctor;
 import com.earthteam.ocr.domain.Patient;
 import com.earthteam.ocr.service.PatientService;
 
-/**
- * @author Vivian Samson
- *
- */
+
 
 @Controller
 @RequestMapping("/patient")

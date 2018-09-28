@@ -17,11 +17,7 @@ import com.earthteam.ocr.domain.Patient;
 import com.earthteam.ocr.repository.AppointmentRepository;
 import com.earthteam.ocr.repository.PatientRepository;
 import com.earthteam.ocr.service.PatientService;
-
-/**
- * @author Vivian Samson
- *
- */
+ 
 @Service
 @Transactional
 public class PatientServiceImpl implements PatientService {

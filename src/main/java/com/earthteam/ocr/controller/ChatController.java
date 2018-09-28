@@ -8,12 +8,7 @@ import com.earthteam.ocr.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-/**
- * 
- * @author Vivian Samson - vsamson92044@gmail.com
- *
- *
- */
+
 @Controller
 public class ChatController {
 	@Autowired

@@ -41,7 +41,7 @@ public class DoctorController {
 		Doctor doctor = doctorService.findByUserName(authentication.getName());
 		List<Appointment> appointmentList = doctorService.findAllAppointments(doctor);
 		model.addAttribute("appointments", appointmentList);
-		model.addAttribute("doctor",doctor);
+		model.addAttribute("doctor", doctor);
 		return "doctor/appointment_list";
 
 	}
